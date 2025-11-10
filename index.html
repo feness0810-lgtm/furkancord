@@ -70,10 +70,93 @@
   const ad = localStorage.getItem("username") || "kullanıcı";
   document.getElementById("kullaniciAdi").innerText = ad;
 </script>
-<div style="text-align:center; margin-top:10px;">
+</div>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+    margin: 0;
+    padding: 0;
+  }
+  #chat-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    height: 400px;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .message {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    color: #333;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .message:hover {
+    background-color: #d0d0d0;
+  }
+
+  button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4ECDC4;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #3bb3a4;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+
+  form {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .emoji-bar {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .emoji-bar button {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    font-size: 20px;
+  }
+
+  .emoji-bar button:hover {
+    background: #f0f0f0;
+  }
+</style>
+<div class="emoji-bar">
   <button onclick="addEmoji('😊')">😊</button>
   <button onclick="addEmoji('😂')">😂</button>
   <button onclick="addEmoji('🔥')">🔥</button>
   <button onclick="addEmoji('👍')">👍</button>
   <button onclick="addEmoji('❤️')">❤️</button>
+</div>
+
+<div style="text-align:center; margin-top:10px;">
+  <button onclick="logout()">Çıkış Yap</button>
 </div>

@@ -300,3 +300,15 @@ function clearChat() {
   };
 </script>
 </body>
+<!-- Ayarlar Butonu (sağ üst köşe) -->
+<div class="settings-button">
+  <button onclick="toggleSettings()">⚙️ Ayarlar</button>
+</div>
+
+<!-- Ayar Paneli (başlangıçta gizli) -->
+<div id="settings-panel" class="settings-panel">
+  <h3>Ayarlar</h3>
+  <button onclick="setTheme('light')">Açık Tema</button>
+  <button onclick="setTheme('dark')">Koyu Tema</button>
+  <button onclick="clearChat()">Sohbeti Temizle</button>
+</div>

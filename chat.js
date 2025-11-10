@@ -70,3 +70,7 @@ function addMessageToChat(message, index) {
   chatContainer.appendChild(div);
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+function addEmoji(emoji) {
+  messageInput.value += emoji;
+  messageInput.focus();
+}

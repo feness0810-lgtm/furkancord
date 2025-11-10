@@ -12,4 +12,6 @@ function registerUser(event) {
   };
 
   localStorage.setItem("user", JSON.stringify(user));
-  alert("Kayıt başarılı! Giriş sayfasına yönlendir
+  alert("Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz.");
+  window.location.href = "login.html";
+}

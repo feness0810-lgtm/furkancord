@@ -17,3 +17,50 @@
   <script src="auth.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sohbet Odası</title>
+  <style>
+    #chat-container {
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 400px;
+      overflow-y: auto;
+      background: #f9f9f9;
+    }
+    .message {
+      margin: 5px 0;
+      padding: 8px;
+      background: #e0e0e0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <h2 style="text-align:center;">Sohbet Odası</h2>
+  <div id="chat-container"></div>
+
+  <form onsubmit="sendMessage(event)" style="text-align:center; margin-top:10px;">
+    <input type="text" id="messageInput" placeholder="Mesaj yaz..." required />
+    <button type="submit">Gönder</button>
+  </form>
+
+  <div style="text-align:center; margin-top:10px;">
+    <button onclick="logout()">Çıkış Yap</button>
+  </div>
+
+  <script src="chat.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

@@ -1,22 +1,35 @@
-// Sayfa yüklendiğinde bot mesajı göster
-window.addEventListener("DOMContentLoaded", () => {
-  const chatBox = document.getElementById("chat-box");
-  const botMessage = document.createElement("p");
-  botMessage.textContent = "🤖 Bot: Hoş geldin! Sohbete başlayabilirsin.";
-  botMessage.style.color = "#555";
-  chatBox.appendChild(botMessage);
-});
+const chatContainer = document.getElementById("chat-container");
+const messageInput = document.getElementById("messageInput");
 
-// Kullanıcı mesaj gönderdiğinde ekrana yaz
+// Sayfa yüklendiğinde eski mesajları getir
+window.onload = () => {
+  const messages = JSON.parse(localStorage.getItem("messages")) || [];
+  messages.forEach(msg => addMessageToChat(msg));
+};
+
 function sendMessage(event) {
   event.preventDefault();
-  const input = document.getElementById("message-input");
-  const message = input.value;
-  const chatBox = document.getElementById("chat-box");
+  const text = messageInput.value.trim();
+  if (text === "") return;
 
-  const messageElement = document.createElement("p");
-  messageElement.textContent = "Sen: " + message;
-  chatBox.appendChild(messageElement);
+  const message = {
+    text,
+    time: new Date().toLocaleTimeString()
+  };
 
-  input.value = "";
+  // Mesajı kaydet
+  const messages = JSON.parse(localStorage.getItem("messages")) || [];
+  messages.push(message);
+  localStorage.setItem("messages", JSON.stringify(messages));
+
+  addMessageToChat(message);
+  messageInput.value = "";
+}
+
+function addMessageToChat(message) {
+  const div = document.createElement("div");
+  div.className = "message";
+  div.innerText = `[${message.time}] ${message.text}`;
+  chatContainer.appendChild(div);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }

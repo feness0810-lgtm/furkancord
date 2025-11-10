@@ -5,6 +5,9 @@
   <title>Ana Sayfa</title>
 </head>
 <body>
+<div class="settings-button">
+  <button onclick="toggleSettings()">⚙️ Ayarlar</button>
+</div>
   <script>
     if (localStorage.getItem("loggedIn") !== "true") {
       window.location.href = "login.html";
@@ -215,4 +218,55 @@ body.dark-theme .message {
 body.light-theme .message {
   background-color: #e0e0e0;
   color: #333;
+}
+<div id="settings-panel" class="settings-panel">
+  <h3>Ayarlar</h3>
+  <button onclick="setTheme('light')">Açık Tema</button>
+  <button onclick="setTheme('dark')">Koyu Tema</button>
+  <button onclick="clearChat()">Sohbeti Temizle</button>
+</div>
+<style>
+.settings-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.settings-button button {
+  background-color: #FFD700;
+  color: #333;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.settings-panel {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 100;
+}
+
+.settings-panel button {
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+}
+<style>
+function toggleSettings() {
+  const panel = document.getElementById("settings-panel");
+  panel.style.display = panel.style.display === "none" ? "block" : "none";
+}
+
+function clearChat() {
+  localStorage.removeItem("messages");
+  document.getElementById("chat-container").innerHTML = "";
 }

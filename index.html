@@ -64,3 +64,9 @@
   <script src="auth.js"></script>
 </body>
 </html>
+<h2 style="text-align:center;">Hoş geldin, <span id="kullaniciAdi"></span>!</h2>
+
+<script>
+  const ad = localStorage.getItem("username") || "kullanıcı";
+  document.getElementById("kullaniciAdi").innerText = ad;
+</script>

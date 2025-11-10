@@ -28,6 +28,7 @@ function loginUser(event) {
 
   if (storedUser && storedUser.username === username && storedUser.password === password) {
     localStorage.setItem("loggedIn", "true");
+    alert("Giriş başarılı! Sohbet ekranına yönlendiriliyorsunuz.");
     window.location.href = "index.html";
   } else {
     alert("Kullanıcı adı veya şifre hatalı!");

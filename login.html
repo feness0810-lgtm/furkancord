@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>FurkanCord - Giriş Yap</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Giriş Yap</h2>
+    <form onsubmit="event.preventDefault(); loginUser();">
+      <input id="login-username" type="text" placeholder="Kullanıcı Adı" required>
+      <input id="login-password" type="password" placeholder="Şifre" required>
+      <button type="submit">Giriş</button>
+    </form>
+    <p>Hesabın yok mu? <a href="register.html">Kayıt Ol</a></p>
+  </div>
+  <script src="auth.js"></script>
+</body>
+</html>

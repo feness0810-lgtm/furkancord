@@ -182,3 +182,37 @@
     }
   </style>
 </head>
+<div style="text-align:center; margin-top:10px;">
+  <button onclick="setTheme('light')">Açık Tema</button>
+  <button onclick="setTheme('dark')">Koyu Tema</button>
+</div>
+<style>
+body.light-theme {
+  background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+  color: #000;
+}
+
+body.dark-theme {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+body.dark-theme #chat-container {
+  background: #2c2c2c;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.light-theme #chat-container {
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .message {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+body.light-theme .message {
+  background-color: #e0e0e0;
+  color: #333;
+}

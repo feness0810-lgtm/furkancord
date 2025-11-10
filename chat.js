@@ -74,3 +74,17 @@ function addEmoji(emoji) {
   messageInput.value += emoji;
   messageInput.focus();
 }
+function setTheme(theme) {
+  document.body.classList.remove("light-theme", "dark-theme");
+  document.body.classList.add(`${theme}-theme`);
+  localStorage.setItem("theme", theme); // 👈 Seçilen temayı kaydet
+}
+
+// Sayfa yüklendiğinde önceki tema uygulanır
+window.onload = () => {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  setTheme(savedTheme);
+
+  const messages = JSON.parse(localStorage.getItem("messages")) || [];
+  messages.forEach((msg, index) => addMessageToChat(msg, index));
+};

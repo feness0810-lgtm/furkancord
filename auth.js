@@ -1,19 +1,16 @@
-function registerUser(event) {
+function loginUser(event) {
   event.preventDefault();
 
   const username = document.getElementById("username").value;
-  const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  console.log("Kayıt verileri:", username, email, password); // Test için
+  const storedUser = JSON.parse(localStorage.getItem("user"));
 
-  const user = {
-    username: username,
-    email: email,
-    password: password
-  };
-
-  localStorage.setItem("user", JSON.stringify(user));
-  alert("Kayıt başarılı!");
-  window.location.href = "login.html";
+  if (storedUser && storedUser.username === username && storedUser.password === password) {
+    localStorage.setItem("loggedIn", "true");
+    alert("Giriş başarılı!");
+    window.location.href = "index.html";
+  } else {
+    alert("Kullanıcı adı veya şifre hatalı!");
+  }
 }

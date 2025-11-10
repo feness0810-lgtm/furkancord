@@ -270,3 +270,33 @@ function clearChat() {
   localStorage.removeItem("messages");
   document.getElementById("chat-container").innerHTML = "";
 }
+<script>
+  function setTheme(theme) {
+    document.body.classList.remove("light-theme", "dark-theme");
+    document.body.classList.add(`${theme}-theme`);
+    localStorage.setItem("theme", theme);
+  }
+
+  function toggleSettings() {
+    const panel = document.getElementById("settings-panel");
+    if (panel.style.display === "none" || panel.style.display === "") {
+      panel.style.display = "block";
+    } else {
+      panel.style.display = "none";
+    }
+  }
+
+  function clearChat() {
+    localStorage.removeItem("messages");
+    document.getElementById("chat-container").innerHTML = "";
+  }
+
+  window.onload = () => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.forEach((msg, index) => addMessageToChat(msg, index));
+  };
+</script>
+</body>

@@ -1,3 +1,23 @@
+<body>
+  <!-- Çıkış butonu en başta -->
+  <button onclick="logout()" style="position: absolute; top: 20px; right: 20px; padding: 10px 15px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Çıkış Yap
+  </button>
+
+  <!-- Sohbet alanı buraya gelecek -->
+  <div class="chat-container">
+    <!-- mesajlar, giriş kontrolü, vs. -->
+  </div>
+
+  <!-- JavaScript dosyaları -->
+  <script src="auth.js"></script>
+  <script src="chat.js"></script>
+</body>
+<script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 <script>
   window.location.href = "register.html";
 </script>

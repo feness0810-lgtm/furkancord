@@ -1,8 +1,17 @@
-<form onsubmit="loginUser(event)">
-  <input type="text" id="username" required />
-  <input type="password" id="password" required />
-  <button type="submit">Giriş Yap</button>
-</form>
-<p>Hesabın yok mu? <a href="register.html">Kayıt Ol</a></p>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Giriş Yap</title>
+</head>
+<body>
+  <h2>Giriş Yap</h2>
+  <form onsubmit="loginUser(event)">
+    <input type="text" id="username" placeholder="Kullanıcı Adı" required />
+    <input type="password" id="password" placeholder="Şifre" required />
+    <button type="submit">Giriş Yap</button>
+  </form>
 
-<script src="auth.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

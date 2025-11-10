@@ -1,7 +1,6 @@
 // Kayıt işlemi
 function registerUser(event) {
   event.preventDefault();
-
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -16,7 +15,6 @@ function registerUser(event) {
 // Giriş işlemi
 function loginUser(event) {
   event.preventDefault();
-
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
@@ -27,13 +25,6 @@ function loginUser(event) {
     window.location.href = "index.html";
   } else {
     alert("Kullanıcı adı veya şifre hatalı!");
-  }
-}
-
-// Giriş kontrolü (sohbet sayfasında çağrılır)
-function checkLogin() {
-  if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
   }
 }
 

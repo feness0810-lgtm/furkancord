@@ -1,64 +1,133 @@
-<body>
-  <!-- Çıkış butonu en başta -->
-  <button onclick="logout()" style="position: absolute; top: 20px; right: 20px; padding: 10px 15px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Çıkış Yap
-  </button>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Furkancord Sohbet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+    }
 
-  <!-- Sohbet alanı buraya gelecek -->
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      width: 150px;
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .chat-container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    #chat-box {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: #fefefe;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <!-- Giriş kontrolü -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- Çıkış butonu -->
+  <button class="logout-button" onclick="logout()">Çıkış Yap</button>
+
+  <!-- Sunucu listesi -->
+  <div class="sidebar">
+    <h3>Sunucular</h3>
+    <ul>
+      <li>Genel</li>
+      <li>Oyun</li>
+      <li>Yazılım</li>
+      <li>Sohbet</li>
+    </ul>
+  </div>
+
+  <!-- Sohbet alanı -->
   <div class="chat-container">
-    <!-- mesajlar, giriş kontrolü, vs. -->
+    <h2>Hoş geldin!</h2>
+    <div id="chat-box"></div>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="message-input" placeholder="Mesaj yaz..." required />
+      <button type="submit">Gönder</button>
+    </form>
   </div>
 
   <!-- JavaScript dosyaları -->
   <script src="auth.js"></script>
   <script src="chat.js"></script>
-</body>
-<script>
-  if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
-<script>
-  window.location.href = "register.html";
-</script>
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <title>FurkanCord</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="sidebar">
-    <h2>Sunucular</h2>
-    <ul>
-      <li># genel</li>
-      <li># oyun</li>
-      <li># yapay-zeka</li>
-    </ul>
-  </div>
-
-  <div class="chat-container">
-    <div class="chat-header">
-      <h2># genel</h2>
-    </div>
-    <div class="chat-messages">
-      <div class="message"><strong>Furkan:</strong> Selam millet 👋</div>
-      <div class="message"><strong>Bot:</strong> Hoş geldin Furkan!</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" placeholder="Mesaj yaz...">
-      <button>Gönder</button>
-    </div>
-  </div>
-
-  <div class="user-list">
-    <h3>Çevrimiçi</h3>
-    <ul>
-      <li>Furkan</li>
-      <li>Bot</li>
-    </ul>
-  </div>
- <script src="chat.js"></script>
 </body>
 </html>

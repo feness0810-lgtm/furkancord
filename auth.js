@@ -5,6 +5,8 @@ function registerUser(event) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
+  console.log("Kayıt verileri:", username, email, password); // Test için
+
   const user = {
     username: username,
     email: email,
@@ -12,6 +14,6 @@ function registerUser(event) {
   };
 
   localStorage.setItem("user", JSON.stringify(user));
-  alert("Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz.");
+  alert("Kayıt başarılı!");
   window.location.href = "login.html";
 }

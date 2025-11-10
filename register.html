@@ -1,79 +1,8 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kayıt Ol</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+<form onsubmit="registerUser(event)">
+  <input type="text" id="username" placeholder="Kullanıcı Adı" required />
+  <input type="email" id="email" placeholder="E-posta" required />
+  <input type="password" id="password" placeholder="Şifre" required />
+  <button type="submit">Kayıt Ol</button>
+</form>
 
-    .register-container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
-    }
-
-    h2 {
-      text-align: center;
-    }
-
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .link {
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .link a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    .link a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div class="register-container">
-    <h2>Kayıt Ol</h2>
-    <form onsubmit="registerUser(event)">
-      <input type="text" id="username" placeholder="Kullanıcı Adı" required />
-      <input type="email" id="email" placeholder="E-posta" required />
-      <input type="password" id="password" placeholder="Şifre" required />
-      <button type="submit">Kayıt Ol</button>
-    </form>
-    <div class="link">
-      <p>Zaten hesabın var mı? <a href="login.html">Giriş Yap</a></p>
-    </div>
-  </div>
-
-  <script src="auth.js"></script>
-</body>
-</html>
+<script src="auth.js"></script>

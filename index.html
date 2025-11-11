@@ -283,3 +283,22 @@ body.light-theme .message {
   };
 </script>
 <head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="login-container">
+  <h1>Furkancord</h1>
+  <p class="subtitle">Sohbete katılmak için kullanıcı adını gir</p>
+  <input type="text" id="username" placeholder="Kullanıcı adın..." />
+  <button onclick="login()">Giriş Yap</button>
+</div>
+<script>
+  function login() {
+    const username = document.getElementById("username").value.trim();
+    if (username) {
+      localStorage.setItem("username", username);
+      window.location.href = "chat.html"; // Sohbet sayfasına yönlendir
+    } else {
+      alert("Lütfen bir kullanıcı adı gir.");
+    }
+  }
+</script>
+</body>

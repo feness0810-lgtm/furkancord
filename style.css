@@ -234,3 +234,40 @@ body {
 .login-container button:hover {
   background-color: #5a67d8;
 }
+.auth-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  margin: 100px auto;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.auth-container button {
+  width: 48%;
+  padding: 12px;
+  margin: 5px 1%;
+  border: none;
+  border-radius: 8px;
+  background-color: #667eea;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#auth-message {
+  margin-top: 10px;
+  color: #e53e3e;
+  font-size: 14px;
+}

@@ -53,3 +53,40 @@ function loginUser(event) {
     alert("Kullanıcı adı veya şifre hatalı!");
   }
 }
+function register() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const message = document.getElementById("auth-message");
+
+  if (!username || !password) {
+    message.textContent = "Lütfen kullanıcı adı ve şifre girin.";
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("users") || "{}");
+
+  if (users[username]) {
+    message.textContent = "Bu kullanıcı zaten kayıtlı.";
+    return;
+  }
+
+  users[username] = password;
+  localStorage.setItem("users", JSON.stringify(users));
+  message.style.color = "#38a169";
+  message.textContent = "Kayıt başarılı! Artık giriş yapabilirsin.";
+}
+
+function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const message = document.getElementById("auth-message");
+
+  const users = JSON.parse(localStorage.getItem("users") || "{}");
+
+  if (users[username] === password) {
+    localStorage.setItem("loggedInUser", username);
+    window.location.href = "chat.html";
+  } else {
+    message.textContent = "Kullanıcı adı veya şifre yanlış.";
+  }
+}

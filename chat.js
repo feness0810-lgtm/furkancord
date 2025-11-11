@@ -88,3 +88,5 @@ window.onload = () => {
   const messages = JSON.parse(localStorage.getItem("messages")) || [];
   messages.forEach((msg, index) => addMessageToChat(msg, index));
 };
+const username = localStorage.getItem("loggedInUser");
+document.getElementById("welcome").textContent = `Hoş geldin, ${username}!`;

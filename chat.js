@@ -88,3 +88,33 @@ window.onload = () => {
   const messages = JSON.parse(localStorage.getItem("messages")) || [];
   messages.forEach((msg, index) => addMessageToChat(msg, index));
 };
+let originalTitle = document.title;
+let unreadCount = 0;
+let windowFocused = true;
+
+window.onfocus = () => {
+  windowFocused = true;
+  unreadCount = 0;
+  document.title = originalTitle;
+};
+
+window.onblur = () => {
+  windowFocused = false;
+};
+
+function notifyNewMessage() {
+  if (!windowFocused) {
+    unreadCount++;
+    document.title = `(${unreadCount}) Yeni mesaj - Furkancord`;
+  }
+}
+addMessageToChat()
+function addMessageToChat(message, index) {
+  const chatContainer = document.getElementById("chat-container");
+  const msgDiv = document.createElement("div");
+  msgDiv.className = "message";
+  msgDiv.textContent = message;
+  chatContainer.appendChild(msgDiv);
+
+  notifyNewMessage(); // 🔔 Sekme başlığını güncelle
+}

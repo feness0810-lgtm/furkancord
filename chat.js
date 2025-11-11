@@ -88,3 +88,50 @@ window.onload = () => {
   const messages = JSON.parse(localStorage.getItem("messages")) || [];
   messages.forEach((msg, index) => addMessageToChat(msg, index));
 };
+function handleMessage() {
+  const input = document.getElementById("message-input");
+  const message = input.value.trim();
+  if (!message) return;
+
+  addMessageToChat(message, "user");
+  input.value = "";
+
+  getAIBotResponse(message); // 🔥 Her mesajdan sonra bot cevap verir
+}
+function getAIBotResponse(userMessage) {
+  let response = "";
+
+  const msg = userMessage.toLowerCase();
+
+  if (msg.includes("nasılsın")) {
+    response = "Ben bir yapay zekayım ama iyi olduğumu varsayabiliriz 😊";
+  } else if (msg.includes("saat")) {
+    const now = new Date();
+    response = `Şu an saat ${now.getHours()}:${now.getMinutes().toString().padStart(2, "0")}`;
+  } else if (msg.includes("selam") || msg.includes("merhaba")) {
+    response = "Selam Furkan! Sohbete hoş geldin 👋";
+  } else {
+    response = "Bunu tam anlayamadım ama öğrenmeye açığım 🤖";
+  }
+
+  setTimeout(() => {
+    addMessageToChat(response, "bot");
+  }, 500);
+}
+addMessageToChat()
+function addMessageToChat(message, sender) {
+  const chatContainer = document.getElementById("chat-container");
+  const msgDiv = document.createElement("div");
+  msgDiv.className = "message";
+
+  if (sender === "bot") {
+    msgDiv.style.backgroundColor = "#e0f0ff";
+    msgDiv.style.color = "#003366";
+    msgDiv.textContent = "🤖 FurkanBot: " + message;
+  } else {
+    msgDiv.textContent = message;
+  }
+
+  chatContainer.appendChild(msgDiv);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}

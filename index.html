@@ -5,9 +5,6 @@
   <title>Ana Sayfa</title>
 </head>
 <body>
-<div class="settings-button">
-  <button onclick="toggleSettings()">⚙️ Ayarlar</button>
-</div>
   <script>
     if (localStorage.getItem("loggedIn") !== "true") {
       window.location.href = "login.html";
@@ -227,13 +224,9 @@ body.light-theme .message {
 
 }
 <style>
-function toggleSettings() {
-  const panel = document.getElementById("settings-panel");
-  panel.style.display = panel.style.display === "none" ? "block" : "none";
-}
-
+ 
 <script>
-  f
+  
     document.body.classList.add(`${theme}-theme`);
     localStorage.setItem("theme", theme);
   }
